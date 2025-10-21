@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> <!-- Migrasi ke HTTPS dari HTTP situs saat ini -->
+    <title>Semester 2 | Project Ignition: PT. Sera Food</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <style>
+        /* CSS (Sama seperti halaman sebelumnya untuk konsistensi) */
+        :root {
+            --sera-red: #D7232A;
+            --sera-yellow: #F7B400;
+            --vibrant-orange: #F58220;
+            --deep-maroon: #A92A2F;
+            --charcoal-black: #212529;
+            --medium-grey: #6c757d;
+            --off-white: #F8F9FA;
+            --pure-white: #FFFFFF;
+            --font-heading: 'Montserrat', sans-serif;
+            --font-body: 'Poppins', sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-body); background-color: var(--off-white); color: var(--charcoal-black); line-height: 1.6; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 700; color: var(--charcoal-black); }
+        h1 { font-size: 2.8rem; margin-bottom: 0.5rem; line-height: 1.2; text-align: center; }
+        h2 { font-size: 2rem; margin-bottom: 2rem; }
+        h3 { font-size: 1.5rem; margin-bottom: 1rem; color: var(--sera-red); }
+        p { margin-bottom: 1rem; color: var(--medium-grey); }
+        .page-header { padding: 120px 0 60px 0; text-align: center; background-color: var(--pure-white); }
+        .page-header .subtitle { font-family: var(--font-heading); font-size: 1.2rem; color: var(--sera-yellow); font-weight: 600; }
+        
+        .main-header { background-color: var(--pure-white); padding: 1rem 0; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .main-header .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-family: var(--font-heading); font-weight: 700; font-size: 1.5rem; color: var(--sera-red); text-decoration: none; }
+        .logo span { color: var(--sera-yellow); }
+        .main-nav ul { list-style: none; display: flex; }
+        .main-nav ul li { margin-left: 2rem; }
+        .main-nav ul li a { text-decoration: none; color: var(--charcoal-black); font-family: var(--font-heading); font-weight: 600; font-size: 0.9rem; padding-bottom: 5px; border-bottom: 2px solid transparent; transition: all 0.3s ease; }
+        .main-nav ul li a:hover, .main-nav ul li a.active { color: var(--sera-red); border-bottom-color: var(--sera-red); }
+        .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
+        .hamburger .bar { width: 25px; height: 3px; background-color: var(--charcoal-black); transition: all 0.3s ease; }
+
+        .content-section { padding: 60px 0; }
+        .strategy-table { width: 100%; border-collapse: collapse; background: var(--pure-white); box-shadow: 0 4px 15px rgba(0,0,0,0.05); overflow-x: auto; }
+        .strategy-table th, .strategy-table td { padding: 15px 20px; text-align: left; border-bottom: 1px solid #eee; }
+        .strategy-table thead { background-color: var(--deep-maroon); color: var(--pure-white); }
+        .strategy-table th { font-family: var(--font-heading); font-weight: 600; }
+        .strategy-table td ul { margin: 0; padding-left: 15px; color: var(--medium-grey); }
+        
+        .timeline-horizontal { display: flex; justify-content: space-between; padding: 20px 0; border-top: 4px solid var(--sera-yellow); border-bottom: 4px solid var(--sera-yellow); margin-top: 2rem; flex-wrap: wrap; }
+        .timeline-month { text-align: center; font-family: var(--font-heading); font-weight: 600; color: var(--charcoal-black); flex: 1; min-width: 100px; position: relative; }
+        .timeline-month span { display: block; font-size: 0.9rem; color: var(--medium-grey); }
+        .milestone-text { font-size: 0.8rem; color: var(--medium-grey); margin-top: 5px; }
+        .milestone-text::before { content: '✓ '; color: var(--sera-red); font-weight: bold; }
+        .timeline-horizontal > div::after { content: ''; position: absolute; bottom: -10px; left: 50%; width: 2px; height: 10px; background: var(--sera-yellow); }
+
+        .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 2rem; }
+        .kpi-card { background: var(--pure-white); padding: 30px; text-align: center; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-bottom: 5px solid var(--sera-red); }
+        .kpi-card .value { font-family: var(--font-heading); font-size: 3rem; font-weight: 700; color: var(--vibrant-orange); margin-bottom: 10px; }
+        .kpi-card .label { font-size: 1rem; font-weight: 500; color: var(--charcoal-black); }
+        
+        .impact-section { background-color: var(--pure-white); padding: 40px; border-left: 5px solid var(--sera-yellow); border-radius: 8px; margin-top: 2rem; }
+        .impact-section ul { list-style: none; padding: 0; }
+        .impact-section li { position: relative; padding-left: 25px; margin-bottom: 10px; }
+        .impact-section li::before { content: '✓'; position: absolute; left: 0; color: var(--sera-red); font-weight: bold; }
+
+        .main-footer { background-color: var(--charcoal-black); color: var(--pure-white); text-align: center; padding: 20px 0; }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .main-nav { display: none; position: absolute; top: 100%; left: 0; width: 100%; background-color: var(--pure-white); box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+            .main-nav.active { display: block; }
+            .main-nav ul { flex-direction: column; padding: 1rem 0; }
+            .main-nav ul li { margin: 0; text-align: center; }
+            .main-nav ul li a { display: block; padding: 1rem; border-bottom: 1px solid #eee; }
+            .hamburger { display: flex; }
+            .strategy-table { display: block; overflow-x: auto; }
+            .strategy-table td ul { margin: 0; padding-left: 15px; }
+            .timeline-horizontal { flex-wrap: wrap; gap: 20px; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo">SERA<span>FOOD</span></a>
+            <nav class="main-nav" id="main-nav">
+                <ul>
+                     <li><a href="../index.html">Home</a></li>
+                     <li><a href="semester1.html">Semester 1</a></li>
+                     <li><a href="semester2.html" class="active">Semester 2</a></li>
+                     <li><a href="semester3.html">Semester 3</a></li>
+                     <li><a href="semester4.html">Semester 4</a></li>
+                     <li><a href="budgeting.html">Budgeting</a></li>
+                     <li><a href="conclusion.html">Conclusion</a></li>
+                 </ul>
+            </nav>
+            <div class="hamburger" id="hamburger">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="page-header">
+            <div class="container">
+                <p class="subtitle">TAHUN PERTAMA: Q3-Q4 2025</p>
+                <h1>Semester 2: Optimasi Maklon & Konten Edukatif</h1>
+                <p>Memperluas pasar maklon, membangun engagement digital, dan memperkenalkan kapasitas produksi.</p>
+            </div>
+        </div>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>Komponen Strategi Semester 2</h2>
+                <table class="strategy-table">
+                    <thead>
+                        <tr>
+                            <th>Komponen</th>
+                            <th>Strategi Utama</th>
+                            <th>Kegiatan</th>
+                            <th>Bulan</th>
+                            <th>KPI</th>
+                            <th>Est. Biaya</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Brand Trust B2B</strong></td>
+                            <td>Meningkatkan kepercayaan melalui edukasi & transparansi proses</td>
+                            <td>
+                                <ul>
+                                    <li>Program proaktif "Factory Visit" bagi calon klien.</li>
+                                    <li>Produksi video profil pabrik dan tim Quality Control (QC).</li>
+                                    <li>Optimasi konten halal informatif dari kekuatan SWOT untuk edukasi.</li>
+                                </ul>
+                            </td>
+                            <td>7 – 12</td>
+                            <td>10 kunjungan pabrik, 3 kontrak baru</td>
+                            <td>Rp 150.000.000</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Digital Engagement</strong></td>
+                            <td>Memperkuat konten maklon dengan nilai edukatif</td>
+                            <td>
+                                <ul>
+                                    <li>Konten series: "Cara Memulai Brand Frozen Food".</li>
+                                    <li>Menjalankan campaign edukatif di LinkedIn & TikTok.</li>
+                                    <li>Tambah alt text gambar & ARIA labels untuk atasi accessibility buruk (skor 40/100 dari SWOT).</li>
+                                </ul>
+                            </td>
+                            <td>7 – 12</td>
+                            <td>10.000 followers gabungan, 5.000 engagement</td>
+                            <td>Rp 150.000.000</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Offline Promotion</strong></td>
+                            <td>Memperluas jaringan dan relasi secara offline</td>
+                            <td>
+                                <ul>
+                                    <li>Menjadi sponsor untuk event UMKM yang relevan.</li>
+                                    <li>Mengadakan sesi pelatihan produksi skala kecil untuk komunitas.</li>
+                                    <li>Ikut pameran B2B regional untuk perluas jaringan.</li>
+                                </ul>
+                            </td>
+                            <td>8 – 11</td>
+                            <td>20 mitra potensial, 2 event sponsorship</td>
+                            <td>Rp 100.000.000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="content-section" style="background-color: var(--pure-white);">
+            <div class="container">
+                <h2>Timeline Eksekusi</h2>
+                <div class="timeline-horizontal" style="display:flex; justify-content:space-between; padding:20px 0; border-top:4px solid var(--sera-yellow); border-bottom:4px solid var(--sera-yellow); margin-top:2rem; flex-wrap:wrap;"> <!-- Tambah flex-wrap untuk mobile -->
+                    <div class="timeline-month" style="flex:1; min-width:100px; text-align:center;">
+                        Bulan 7
+                        <p class="milestone-text" style="font-size:0.8rem; color:var(--medium-grey); margin-top:5px;">✓ Factory Visit & video profil pabrik</p>
+                    </div>
+                    <div class="timeline-month" style="flex:1; min-width:100px; text-align:center;">
+                        Bulan 8
+                        <p class="milestone-text" style="font-size:0.8rem; color:var(--medium-grey); margin-top:5px;">✓ Campaign edukatif LinkedIn & TikTok</p>
+                    </div>
+                    <div class="timeline-month" style="flex:1; min-width:100px; text-align:center;">
+                        Bulan 9
+                        <p class="milestone-text" style="font-size:0.8rem; color:var(--medium-grey); margin-top:5px;">✓ Sponsorship event UMKM & training</p>
+                    </div>
+                    <div class="timeline-month" style="flex:1; min-width:100px; text-align:center;">
+                        Bulan 10
+                        <p class="milestone-text" style="font-size:0.8rem; color:var(--medium-grey); margin-top:5px;">✓ Konten series "Cara Memulai Brand"</p>
+                    </div>
+                    <div class="timeline-month" style="flex:1; min-width:100px; text-align:center;">
+                        Bulan 11
+                        <p class="milestone-text" style="font-size:0.8rem; color:var(--medium-grey); margin-top:5px;">✓ Pameran B2B & networking offline</p>
+                    </div>
+                    <div class="timeline-month" style="flex:1; min-width:100px; text-align:center;">
+                        Bulan 12
+                        <p class="milestone-text" style="font-size:0.8rem; color:var(--medium-grey); margin-top:5px;">✓ Evaluasi engagement & kontrak baru</p>
+                    </div>
+                </div>
+                <p style="text-align: center; margin-top: 1rem;">Fokus bergeser ke aktivasi proaktif (Factory Visit, Sponsorship) dan produksi konten yang lebih mendalam.</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>Key Performance Indicators (KPI)</h2>
+                <div class="kpi-grid">
+                    <div class="kpi-card">
+                        <div class="value">10</div>
+                        <div class="label">Kunjungan Pabrik Terlaksana</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="value">3</div>
+                        <div class="label">Kontrak B2B Baru Terealisasi</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="value">10.000</div>
+                        <div class="label">Followers Gabungan (Total)</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="value">20</div>
+                        <div class="label">Mitra Potensial dari Event</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section" style="background-color: var(--pure-white);">
+            <div class="container">
+                <h2>Proyeksi Dampak Strategis</h2>
+                <div class="impact-section">
+                    <p>Penyelesaian Semester 2 akan memperkuat *cash engine* B2B dan menyiapkan landasan untuk inisiatif B2C. Dampak utamanya adalah:</p>
+                    <ul>
+                        <li><strong>Penguatan Pipeline Penjualan:</strong> Aktivitas proaktif akan secara signifikan meningkatkan jumlah dan kualitas prospek B2B, mengamankan arus kas untuk tahun berikutnya.</li>
+                        <li><strong>Peningkatan Otoritas Merek:</strong> Melalui konten edukatif dan transparansi, PT. Sera Food akan dipandang bukan hanya sebagai produsen, tetapi sebagai ahli dan mitra strategis di industri frozen food.</li>
+                        <li><strong>Perluasan Jaringan Offline:</strong> Keterlibatan dalam komunitas UMKM membuka pintu ke segmen pasar baru dan membangun relasi yang tidak dapat dicapai hanya melalui digital.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2024 Strategic Consulting for PT. Sera Food. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const mainNav = document.getElementById('main-nav');
+        hamburger.addEventListener('click', () => { mainNav.classList.toggle('active'); });
+        const navLinks = document.querySelectorAll('.main-nav a');
+        navLinks.forEach(link => { link.addEventListener('click', () => { if (mainNav.classList.contains('active')) { mainNav.classList.remove('active'); } }); });
+
+        // Contoh JS sederhana untuk form submit (teknis: prevent default, alert success)
+        document.querySelector('form#kemitraan')?.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Pendaftaran mitra berhasil dikirim!'); // Ganti dengan AJAX ke backend jika deploy
+        });
+
+        // Contoh fetch konten dinamis (untuk recipes jika tambah)
+        fetch('recipes.json').then(response => response.json()).then(data => {
+            document.getElementById('recipes').innerHTML = data.map(recipe => `<p>${recipe.title}</p>`).join('');
+        }).catch(error => console.error('Error loading dynamic content:', error)); // Atasi konten minim dari SWOT
+    </script>
+</body>
+</html>

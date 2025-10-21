@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> <!-- Migrasi ke HTTPS dari HTTP situs saat ini -->
+    <title>Conclusion | Project Ignition: PT. Sera Food</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <style>
+        /* CSS (Sama seperti halaman sebelumnya untuk konsistensi) */
+        :root {
+            --sera-red: #D7232A;
+            --sera-yellow: #F7B400;
+            --vibrant-orange: #F58220;
+            --deep-maroon: #A92A2F;
+            --charcoal-black: #212529;
+            --medium-grey: #6c757d;
+            --off-white: #F8F9FA;
+            --pure-white: #FFFFFF;
+            --font-heading: 'Montserrat', sans-serif;
+            --font-body: 'Poppins', sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-body); background-color: var(--off-white); color: var(--charcoal-black); line-height: 1.6; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 700; color: var(--charcoal-black); }
+        h1 { font-size: 2.8rem; margin-bottom: 0.5rem; line-height: 1.2; text-align: center; }
+        h2 { font-size: 2rem; margin-bottom: 2rem; }
+        h3 { font-size: 1.5rem; margin-bottom: 1rem; color: var(--sera-red); }
+        p { margin-bottom: 1rem; color: var(--medium-grey); }
+        .page-header { padding: 120px 0 60px 0; text-align: center; background-color: var(--pure-white); }
+        .page-header .subtitle { font-family: var(--font-heading); font-size: 1.2rem; color: var(--sera-yellow); font-weight: 600; }
+        
+        .main-header { background-color: var(--pure-white); padding: 1rem 0; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .main-header .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-family: var(--font-heading); font-weight: 700; font-size: 1.5rem; color: var(--sera-red); text-decoration: none; }
+        .logo span { color: var(--sera-yellow); }
+        .main-nav ul { list-style: none; display: flex; }
+        .main-nav ul li { margin-left: 2rem; }
+        .main-nav ul li a { text-decoration: none; color: var(--charcoal-black); font-family: var(--font-heading); font-weight: 600; font-size: 0.9rem; padding-bottom: 5px; border-bottom: 2px solid transparent; transition: all 0.3s ease; }
+        .main-nav ul li a:hover, .main-nav ul li a.active { color: var(--sera-red); border-bottom-color: var(--sera-red); }
+        .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
+        .hamburger .bar { width: 25px; height: 3px; background-color: var(--charcoal-black); transition: all 0.3s ease; }
+
+        .content-section { padding: 60px 0; }
+        .conclusion-text { max-width: 800px; margin: 0 auto 3rem auto; text-align: center; font-size: 1.1rem; }
+        
+        .projection-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+        .projection-card { background: var(--pure-white); padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .projection-card h3 { font-size: 1.2rem; display: flex; align-items: center; gap: 10px; }
+        .projection-card .highlight { font-family: var(--font-heading); font-weight: 700; color: var(--vibrant-orange); }
+
+        .financial-projection-table { width: 100%; border-collapse: collapse; background: var(--pure-white); box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-top: 2rem; }
+        .financial-projection-table th, .financial-projection-table td { padding: 15px; text-align: center; border-bottom: 1px solid #eee; }
+        .financial-projection-table thead { background-color: var(--deep-maroon); color: var(--pure-white); }
+        .financial-projection-table th { font-family: var(--font-heading); font-weight: 600; }
+        .financial-projection-table td:first-child { text-align: left; font-weight: 600; }
+        .dscr-good { color: #28a745; font-weight: bold; }
+        .dscr-bad { color: #dc3545; font-weight: bold; }
+
+        .final-cta { text-align: center; margin-top: 3rem; }
+        .btn { display: inline-block; padding: 12px 30px; background-color: var(--sera-red); color: var(--pure-white); font-family: var(--font-heading); font-weight: 600; text-decoration: none; border-radius: 5px; transition: all 0.3s ease; }
+        .btn:hover { background-color: var(--deep-maroon); }
+
+        .main-footer { background-color: var(--charcoal-black); color: var(--pure-white); text-align: center; padding: 20px 0; }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .main-nav { display: none; position: absolute; top: 100%; left: 0; width: 100%; background-color: var(--pure-white); box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+            .main-nav.active { display: block; }
+            .main-nav ul { flex-direction: column; padding: 1rem 0; }
+            .main-nav ul li { margin: 0; text-align: center; }
+            .main-nav ul li a { display: block; padding: 1rem; border-bottom: 1px solid #eee; }
+            .hamburger { display: flex; }
+            .financial-projection-table { display: block; overflow-x: auto; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo">SERA<span>FOOD</span></a>
+            <nav class="main-nav" id="main-nav">
+                <ul>
+                     <li><a href="../index.html">Home</a></li>
+                     <li><a href="semester1.html">Semester 1</a></li>
+                     <li><a href="semester2.html">Semester 2</a></li>
+                     <li><a href="semester3.html">Semester 3</a></li>
+                     <li><a href="semester4.html">Semester 4</a></li>
+                     <li><a href="budgeting.html">Budgeting</a></li>
+                     <li><a href="conclusion.html" class="active">Conclusion</a></li>
+                 </ul>
+            </nav>
+            <div class="hamburger" id="hamburger">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="page-header">
+            <div class="container">
+                <p class="subtitle">TRANSFORMASI 24 BULAN</p>
+                <h1>Kesimpulan & Proyeksi Hasil</h1>
+                <p>Dari Nilai Potensial Menjadi Nilai Pasar Terbukti.</p>
+            </div>
+        </div>
+
+        <section class="content-section">
+            <div class="container">
+                <p class="conclusion-text">
+                    "Project Ignition" adalah sebuah investasi strategis selama 24 bulan untuk membangun mesin pertumbuhan ganda yang teruji, terukur, dan siap diskalakan. Peta jalan ini dirancang untuk secara fundamental mentransformasi valuasi PT. Sera Food dengan menjawab tiga pertanyaan investor: B2B dapat dibuat lebih tangguh, model bisnis B2C dapat divalidasi, dan fondasi untuk pertumbuhan jangka panjang telah dibangun.
+                </p>
+                
+                <h2>Proyeksi Hasil pada Akhir Bulan ke-24</h2>
+                <div class="projection-grid">
+                    <div class="projection-card">
+                        <h3><span>📊</span>Transformasi Model Pendapatan</h3>
+                        <p>Kontribusi pendapatan B2C akan tumbuh dari ~0% menjadi <span class="highlight">15-20%</span> dari total pendapatan, menunjukkan potensi skalabilitas yang signifikan.</p>
+                    </div>
+                    <div class="projection-card">
+                        <h3><span>💻</span>Peningkatan Aset Digital & Merek</h3>
+                        <p>Memiliki Hub Bisnis Digital yang menghasilkan min. <span class="highlight">50 prospek B2B/kuartal</span> dan telah melayani lebih dari <span class="highlight">20.000 pelanggan B2C</span>. Mitigasi SWOT: Optimasi performance (lazy loading gambar) dan accessibility (alt text/ARIA) untuk skor >80/100.</p>
+                    </div>
+                    <div class="projection-card">
+                        <h3><span>📈</span>Validasi Model Bisnis B2C</h3>
+                        <p>Mencapai target *repeat order rate* sebesar <span class="highlight">25%</span> dan membentuk jaringan minimal <span class="highlight">50 reseller aktif</span>, membuktikan model B2C mampu mempertahankan pelanggan.</p>
+                    </div>
+                    <div class="projection-card">
+                        <h3><span>🤝</span>Penguatan Basis Klien B2B</h3>
+                        <p>Berhasil mengamankan <span class="highlight">10-12 kontrak B2B baru</span>, mengurangi risiko konsentrasi klien, dan meningkatkan utilisasi pabrik secara keseluruhan.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section" style="background-color: var(--pure-white);">
+            <div class="container">
+                <h2>Proyeksi Finansial (Skenario Konservatif)</h2>
+                <p style="text-align:center; max-width: 700px; margin: -1rem auto 2rem auto;">Eksekusi strategi ini diproyeksikan secara langsung meningkatkan kapasitas perusahaan untuk memenuhi kewajiban finansialnya kepada investor, yang ditunjukkan oleh peningkatan DSCR di atas 1.0.</p>
+                <div style="overflow-x: auto;">
+                    <table class="financial-projection-table">
+                        <thead>
+                            <tr>
+                                <th>Uraian</th>
+                                <th>Tahun 0 (2025 - Baseline)</th>
+                                <th>Tahun 1 (2026 - Tahun Fondasi)</th>
+                                <th>Tahun 2 (2027 - Tahun Ignisi)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Total Pendapatan</td>
+                                <td>176,2 M</td>
+                                <td>202,6 M</td>
+                                <td>233,0 M</td>
+                            </tr>
+                             <tr>
+                                <td>Pertumbuhan Pendapatan</td>
+                                <td>-</td>
+                                <td>+15%</td>
+                                <td>+15%</td>
+                            </tr>
+                            <tr>
+                                <td>Laba Bersih</td>
+                                <td>22,5 M</td>
+                                <td>25,9 M</td>
+                                <td>29,8 M</td>
+                            </tr>
+                            <tr>
+                                <td><strong>DSCR (Debt Service Coverage Ratio)</strong></td>
+                                <td><span class="dscr-bad">0.90</span></td>
+                                <td><span class="dscr-good">1.04</span></td>
+                                <td><span class="dscr-good">1.19</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="final-cta">
+                    <a href="../index.html" class="btn">Kembali ke Awal</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2024 Strategic Consulting for PT. Sera Food. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const mainNav = document.getElementById('main-nav');
+        hamburger.addEventListener('click', () => { mainNav.classList.toggle('active'); });
+        const navLinks = document.querySelectorAll('.main-nav a');
+        navLinks.forEach(link => { link.addEventListener('click', () => { if (mainNav.classList.contains('active')) { mainNav.classList.remove('active'); } }); });
+
+        // Contoh fetch konten dinamis (untuk recipes jika tambah)
+        fetch('recipes.json').then(response => response.json()).then(data => {
+            document.getElementById('recipes').innerHTML = data.map(recipe => `<p>${recipe.title}</p>`).join('');
+        }).catch(error => console.error('Error loading dynamic content:', error)); // Atasi konten minim dari SWOT
+    </script>
+</body>
+</html>
